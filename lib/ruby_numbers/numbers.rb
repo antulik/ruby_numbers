@@ -7,36 +7,36 @@ module RubyNumbers::Numbers
     perform_operation(2, operation)
   end
 
-  def three
-    3
+  def three(operation = nil)
+    perform_operation(3, operation)
   end
 
-  def four
-    4
+  def four(operation = nil)
+    perform_operation(4, operation)
   end
 
-  def five
-    5
+  def five(operation = nil)
+    perform_operation(5, operation)
   end
 
-  def six
-    6
+  def six(operation = nil)
+    perform_operation(6, operation)
   end
 
-  def seven
-    7
+  def seven(operation = nil)
+    perform_operation(7, operation)
   end
 
-  def eight
-    8
+  def eight(operation = nil)
+    perform_operation(8, operation)
   end
 
-  def nine
-    9
+  def nine(operation = nil)
+    perform_operation(9, operation)
   end
 
-  def zero
-    0
+  def zero(operation = nil)
+    perform_operation(0, operation)
   end
 
   def perform_operation(number, operation)
