@@ -5,6 +5,12 @@ RSpec.describe RubyNumbers::Numbers do
     it 'returns 1' do
       expect(klass.one).to eq 1
     end
+
+    it 'accepts plus 1 operation and returns 2' do
+      operation = RubyNumbers::Operation.new(:+, 1)
+
+      expect(klass.one(operation)).to eq 2
+    end
   end
 
   describe '#two' do
