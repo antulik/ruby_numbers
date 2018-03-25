@@ -4,10 +4,10 @@ module RubyNumbers::Operations
     minus:      :-,
     times:      :*,
     divided_by: :/,
-  }
+  }.freeze
 
   def generic_operation(number)
-    operation_for OPERATION_TYPES[__callee__], number
+    operation_for OPERATION_TYPES.fetch(__callee__), number
   end
 
   def operation_for(type, number)

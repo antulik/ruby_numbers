@@ -1,43 +1,16 @@
 module RubyNumbers::Numbers
-  def one(operation = nil)
-    perform_operation(1, operation)
-  end
-
-  def two(operation = nil)
-    perform_operation(2, operation)
-  end
-
-  def three(operation = nil)
-    perform_operation(3, operation)
-  end
-
-  def four(operation = nil)
-    perform_operation(4, operation)
-  end
-
-  def five(operation = nil)
-    perform_operation(5, operation)
-  end
-
-  def six(operation = nil)
-    perform_operation(6, operation)
-  end
-
-  def seven(operation = nil)
-    perform_operation(7, operation)
-  end
-
-  def eight(operation = nil)
-    perform_operation(8, operation)
-  end
-
-  def nine(operation = nil)
-    perform_operation(9, operation)
-  end
-
-  def zero(operation = nil)
-    perform_operation(0, operation)
-  end
+  NUMBERS_MAP = {
+    one:   1,
+    two:   2,
+    three: 3,
+    four:  4,
+    five:  5,
+    six:   6,
+    seven: 7,
+    eight: 8,
+    nine:  9,
+    zero:  0,
+  }.freeze
 
   def perform_operation(number, operation)
     if operation
@@ -46,4 +19,19 @@ module RubyNumbers::Numbers
       number
     end
   end
+
+  def generic_number(operation = nil)
+    perform_operation NUMBERS_MAP.fetch(__callee__), operation
+  end
+
+  alias one generic_number
+  alias two generic_number
+  alias three generic_number
+  alias four generic_number
+  alias five generic_number
+  alias six generic_number
+  alias seven generic_number
+  alias eight generic_number
+  alias nine generic_number
+  alias zero generic_number
 end
