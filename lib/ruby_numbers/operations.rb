@@ -1,5 +1,5 @@
 module RubyNumbers::Operations
   def plus(number)
-    RubyNumbers::Operation.new
+    RubyNumbers::Operation.new(:+, number)
   end
 end
