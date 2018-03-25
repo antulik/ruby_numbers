@@ -1,21 +1,14 @@
 module RubyNumbers::Operations
-  OPERATION_TYPES = {
+  TYPES = {
     plus:       :+,
     minus:      :-,
     times:      :*,
     divided_by: :/,
   }.freeze
 
-  def generic_operation(number)
-    operation_for OPERATION_TYPES.fetch(__callee__), number
+  TYPES.each do |type_name, type|
+    define_method type_name do |number|
+      RubyNumbers::Operation.new(type, number)
+    end
   end
-
-  def operation_for(type, number)
-    RubyNumbers::Operation.new(type, number)
-  end
-
-  alias plus generic_operation
-  alias minus generic_operation
-  alias times generic_operation
-  alias divided_by generic_operation
 end
