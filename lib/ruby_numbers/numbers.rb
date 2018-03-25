@@ -1,7 +1,7 @@
 module RubyNumbers::Numbers
   def one(operation = nil)
     if operation
-      1 + operation.number
+      1.public_send(operation.type, operation.number)
     else
       1
     end
