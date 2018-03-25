@@ -39,50 +39,50 @@ RSpec.describe RubyNumbers::Numbers do
   end
 
   describe '#three' do
-    it 'returns 3' do
-      expect(klass.three).to eq 3
+    it_behaves_like 'number', 3 do
+      subject { klass.method(:three) }
     end
   end
 
   describe '#four' do
-    it 'returns 4' do
-      expect(klass.four).to eq 4
+    it_behaves_like 'number', 4 do
+      subject { klass.method(:four) }
     end
   end
 
   describe '#five' do
-    it 'returns 5' do
-      expect(klass.five).to eq 5
+    it_behaves_like 'number', 5 do
+      subject { klass.method(:five) }
     end
   end
 
   describe '#six' do
-    it 'returns 6' do
-      expect(klass.six).to eq 6
+    it_behaves_like 'number', 6 do
+      subject { klass.method(:six) }
     end
   end
 
   describe '#seven' do
-    it 'returns 7' do
-      expect(klass.seven).to eq 7
+    it_behaves_like 'number', 7 do
+      subject { klass.method(:seven) }
     end
   end
 
   describe '#eight' do
-    it 'returns 8' do
-      expect(klass.eight).to eq 8
+    it_behaves_like 'number', 8 do
+      subject { klass.method(:eight) }
     end
   end
 
   describe '#nine' do
-    it 'returns 9' do
-      expect(klass.nine).to eq 9
+    it_behaves_like 'number', 9 do
+      subject { klass.method(:nine) }
     end
   end
 
   describe '#zero' do
-    it 'returns 0' do
-      expect(klass.zero).to eq 0
+    it_behaves_like 'number', 0 do
+      subject { klass.method(:zero) }
     end
   end
 end
