@@ -1,21 +1,21 @@
 module RubyNumbers::Operations
-  def plus(number)
-    operation_for(:+, number)
-  end
+  OPERATION_TYPES = {
+    plus:       :+,
+    minus:      :-,
+    times:      :*,
+    divided_by: :/,
+  }
 
-  def minus(number)
-    operation_for(:-, number)
-  end
-
-  def divided_by(number)
-    operation_for(:/, number)
-  end
-
-  def times(number)
-    operation_for(:*, number)
+  def generic_operation(number)
+    operation_for OPERATION_TYPES[__callee__], number
   end
 
   def operation_for(type, number)
     RubyNumbers::Operation.new(type, number)
   end
+
+  alias plus generic_operation
+  alias minus generic_operation
+  alias times generic_operation
+  alias divided_by generic_operation
 end
