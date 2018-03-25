@@ -14,13 +14,6 @@ RSpec.describe RubyNumbers::Numbers do
       expect(subject.call).to eq numeric
     end
 
-    it_behaves_like 'number with operation', :+, 0, numeric
-    it_behaves_like 'number with operation', :*, 0, 0
-    it_behaves_like 'number with operation', :+, 1, (numeric + 1)
-    it_behaves_like 'number with operation', :-, 2, (numeric - 2)
-    it_behaves_like 'number with operation', :*, 5, (numeric * 5)
-    it_behaves_like 'number with operation', :/, -7, (numeric / -7)
-
     it 'accepts divided_by 0 operation and raises error' do
       operation = RubyNumbers::Operation.new(:/, 0)
 
@@ -32,6 +25,13 @@ RSpec.describe RubyNumbers::Numbers do
 
       expect(subject.call(operation)).to eq 0
     end
+
+    it_behaves_like 'number with operation', :+, 0, numeric
+    it_behaves_like 'number with operation', :*, 0, 0
+    it_behaves_like 'number with operation', :+, 1, (numeric + 1)
+    it_behaves_like 'number with operation', :-, 2, (numeric - 2)
+    it_behaves_like 'number with operation', :*, 5, (numeric * 5)
+    it_behaves_like 'number with operation', :/, -7, (numeric / -7)
   end
 
   describe '#one' do

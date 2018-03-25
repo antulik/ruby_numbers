@@ -1,43 +1,37 @@
 RSpec.describe RubyNumbers::Operations do
   let(:klass) { Class.new { extend RubyNumbers::Operations } }
 
-  describe '#plus' do
+  shared_examples 'operation' do |type|
     it 'returns operation' do
-      expect(klass.plus(1)).to be_a RubyNumbers::Operation
+      expect(subject.call(1)).to be_a RubyNumbers::Operation
     end
 
-    it 'has "+" type' do
-      expect(klass.plus(1).type).to eq :+
+    it 'returns operation type' do
+      expect(subject.call(1).type).to eq type
+    end
+  end
+
+  describe '#plus' do
+    it_behaves_like 'operation', :+ do
+      subject { klass.method(:plus) }
     end
   end
 
   describe '#minus' do
-    it 'returns operation' do
-      expect(klass.minus(1)).to be_a RubyNumbers::Operation
-    end
-
-    it 'has "-" type' do
-      expect(klass.minus(1).type).to eq :-
+    it_behaves_like 'operation', :- do
+      subject { klass.method(:minus) }
     end
   end
 
   describe '#divided_by' do
-    it 'returns operation' do
-      expect(klass.divided_by(1)).to be_a RubyNumbers::Operation
-    end
-
-    it 'has "/" type' do
-      expect(klass.divided_by(1).type).to eq :/
+    it_behaves_like 'operation', :/ do
+      subject { klass.method(:divided_by) }
     end
   end
 
   describe '#times' do
-    it 'returns operation' do
-      expect(klass.times(1)).to be_a RubyNumbers::Operation
-    end
-
-    it 'has "*" type' do
-      expect(klass.times(1).type).to eq :*
+    it_behaves_like 'operation', :* do
+      subject { klass.method(:times) }
     end
   end
 end
