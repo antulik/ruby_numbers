@@ -33,8 +33,8 @@ RSpec.describe RubyNumbers::Numbers do
   end
 
   describe '#two' do
-    it 'returns 2' do
-      expect(klass.two).to eq 2
+    it_behaves_like 'number', 2 do
+      subject { klass.method(:two) }
     end
   end
 
