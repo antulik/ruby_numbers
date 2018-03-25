@@ -11,6 +11,12 @@ RSpec.describe RubyNumbers::Numbers do
 
       expect(klass.one(operation)).to eq 2
     end
+
+    it 'accepts minus 2 operation and returns -1' do
+      operation = RubyNumbers::Operation.new(:-, 2)
+
+      expect(klass.one(operation)).to eq(-1)
+    end
   end
 
   describe '#two' do
