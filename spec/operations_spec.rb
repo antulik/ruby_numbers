@@ -6,8 +6,12 @@ RSpec.describe RubyNumbers::Operations do
       expect(subject.call(1)).to be_a RubyNumbers::Operation
     end
 
-    it 'returns operation type' do
+    it 'returns operation with valid type' do
       expect(subject.call(1).type).to eq type
+    end
+
+    it 'returns operation with the same number' do
+      expect(subject.call(-3).number).to eq(-3)
     end
   end
 
