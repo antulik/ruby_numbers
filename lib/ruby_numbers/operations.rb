@@ -8,10 +8,10 @@ module RubyNumbers::Operations
   end
 
   def divided_by(number)
-    RubyNumbers::Operation.new(:+, number)
+    RubyNumbers::Operation.new(:/, number)
   end
 
   def times(number)
-    RubyNumbers::Operation.new(:+, number)
+    RubyNumbers::Operation.new(:*, number)
   end
 end
