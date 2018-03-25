@@ -1,6 +1,10 @@
 module RubyNumbers::Numbers
-  def one
-    1
+  def one(operation = nil)
+    if operation
+      1 + operation.number
+    else
+      1
+    end
   end
 
   def two
