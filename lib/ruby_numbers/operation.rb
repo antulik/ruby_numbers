@@ -1,0 +1,2 @@
+class RubyNumbers::Operation
+end
