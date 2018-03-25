@@ -1,14 +1,10 @@
 module RubyNumbers::Numbers
   def one(operation = nil)
-    if operation
-      1.public_send(operation.type, operation.number)
-    else
-      1
-    end
+    perform_operation(1, operation)
   end
 
-  def two
-    2
+  def two(operation = nil)
+    perform_operation(2, operation)
   end
 
   def three
@@ -41,5 +37,13 @@ module RubyNumbers::Numbers
 
   def zero
     0
+  end
+
+  def perform_operation(number, operation)
+    if operation
+      number.public_send(operation.type, operation.number)
+    else
+      number
+    end
   end
 end
