@@ -1,17 +1,21 @@
 module RubyNumbers::Operations
   def plus(number)
-    RubyNumbers::Operation.new(:+, number)
+    operation_for(:+, number)
   end
 
   def minus(number)
-    RubyNumbers::Operation.new(:-, number)
+    operation_for(:-, number)
   end
 
   def divided_by(number)
-    RubyNumbers::Operation.new(:/, number)
+    operation_for(:/, number)
   end
 
   def times(number)
-    RubyNumbers::Operation.new(:*, number)
+    operation_for(:*, number)
+  end
+
+  def operation_for(type, number)
+    RubyNumbers::Operation.new(type, number)
   end
 end
