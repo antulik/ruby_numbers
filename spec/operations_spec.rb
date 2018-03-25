@@ -5,11 +5,19 @@ RSpec.describe RubyNumbers::Operations do
     it 'returns operation' do
       expect(klass.plus(1)).to be_a RubyNumbers::Operation
     end
+
+    it 'has "+" type' do
+      expect(klass.plus(1).type).to eq :+
+    end
   end
 
   describe '#minus' do
     it 'returns operation' do
       expect(klass.minus(1)).to be_a RubyNumbers::Operation
+    end
+
+    it 'has "-" type' do
+      expect(klass.minus(1).type).to eq :-
     end
   end
 
