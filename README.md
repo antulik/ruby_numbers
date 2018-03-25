@@ -1,11 +1,15 @@
 # RubyNumbers
 
+This is an example solution for the code test for one of the job interview.
+
+## Task description:
+
 Let’s get functional, functional.
 We want to write calculations using functions and get the results.
 
 Here are some examples:
 
-```
+```ruby
 six(times(five)) # must return 30
 one(plus(nine)) # must return 10
 six(minus(three)) # must return 3
@@ -28,25 +32,29 @@ Guidelines
 - Keep lines wrapped at 120 characters
 - Enjoy this challenge!
 
+## Future work
+
+- Add Refinements support
+
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ruby_numbers'
+gem 'ruby_numbers', git: 'https://github.com/antulik/ruby_numbers.git'
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ruby_numbers
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+class X
+  include RubyNumbers
+
+  def method
+    one(plus(three))
+  end
+end
+```
 
 ## Development
 
@@ -56,7 +64,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ruby_numbers.
+Bug reports and pull requests are welcome on GitHub at https://github.com/antulik/ruby_numbers.
 
 ## License
 

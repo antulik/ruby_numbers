@@ -4,8 +4,7 @@ RSpec.describe RubyNumbers do
   end
 
   context 'matches given requirements' do
-    include RubyNumbers::Numbers
-    include RubyNumbers::Operations
+    include RubyNumbers
 
     it 'returns 30 for six(times(five))' do
       expect(
