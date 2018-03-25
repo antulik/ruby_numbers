@@ -1,33 +1,34 @@
 RSpec.describe RubyNumbers::Numbers do
   let(:klass) { Class.new { extend RubyNumbers::Numbers } }
 
-  describe '#one' do
-    it 'returns 1' do
-      expect(klass.one).to eq 1
+  shared_examples 'number with operation' do |operation, other_number, result|
+    it "#{operation} #{other_number} = #{result}" do
+      operation = RubyNumbers::Operation.new(operation, other_number)
+
+      expect(subject.call(operation)).to eq result
+    end
+  end
+
+  shared_examples 'number' do |numeric|
+    it 'returns its numeric equivalent' do
+      expect(subject.call).to eq numeric
     end
 
-    it 'accepts plus 1 operation and returns 2' do
-      operation = RubyNumbers::Operation.new(:+, 1)
-
-      expect(klass.one(operation)).to eq 2
-    end
-
-    it 'accepts minus 2 operation and returns -1' do
-      operation = RubyNumbers::Operation.new(:-, 2)
-
-      expect(klass.one(operation)).to eq(-1)
-    end
-
-    it 'accepts times 5 operation and returns 5' do
-      operation = RubyNumbers::Operation.new(:*, 5)
-
-      expect(klass.one(operation)).to eq 5
-    end
+    it_behaves_like 'number with operation', :+, 1, (numeric + 1)
+    it_behaves_like 'number with operation', :-, 2, (numeric - 2)
+    it_behaves_like 'number with operation', :*, 5, (numeric * 5)
+    it_behaves_like 'number with operation', :/, -7, (numeric / -7)
 
     it 'accepts divided_by 0 operation and raises error' do
       operation = RubyNumbers::Operation.new(:/, 0)
 
-      expect { klass.one(operation) }.to raise_exception(ZeroDivisionError)
+      expect { subject.call(operation) }.to raise_exception(ZeroDivisionError)
+    end
+  end
+
+  describe '#one' do
+    it_behaves_like 'number', 1 do
+      subject { klass.method(:one) }
     end
   end
 
