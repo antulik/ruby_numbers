@@ -14,6 +14,8 @@ RSpec.describe RubyNumbers::Numbers do
       expect(subject.call).to eq numeric
     end
 
+    it_behaves_like 'number with operation', :+, 0, numeric
+    it_behaves_like 'number with operation', :*, 0, 0
     it_behaves_like 'number with operation', :+, 1, (numeric + 1)
     it_behaves_like 'number with operation', :-, 2, (numeric - 2)
     it_behaves_like 'number with operation', :*, 5, (numeric * 5)
@@ -23,6 +25,12 @@ RSpec.describe RubyNumbers::Numbers do
       operation = RubyNumbers::Operation.new(:/, 0)
 
       expect { subject.call(operation) }.to raise_exception(ZeroDivisionError)
+    end
+
+    it 'returns 0 when subtracts itself' do
+      operation = RubyNumbers::Operation.new(:-, numeric)
+
+      expect(subject.call(operation)).to eq 0
     end
   end
 
