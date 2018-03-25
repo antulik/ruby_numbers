@@ -4,7 +4,7 @@ module RubyNumbers::Operations
   end
 
   def minus(number)
-    RubyNumbers::Operation.new(:+, number)
+    RubyNumbers::Operation.new(:-, number)
   end
 
   def divided_by(number)
